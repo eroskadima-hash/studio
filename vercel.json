@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/:path(.*)", "has": [{ "type": "host", "value": "studio-eroskadima.vercel.app" }], "destination": "https://studio.eroskadima.com/:path", "permanent": true }
+  ],
+  "headers": [
+    { "source": "/(img|vid|aud)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] }
+  ]
+}

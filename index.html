@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Kadima Studio</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="Kadima Studio — Pages de vente, vidéo, identité, musique, conseil">
+<meta property="og:description" content="Pages de vente avec paiement intégré, motion design, identité visuelle, musique et conseil administratif et financier. Bénin.">
+<meta property="og:image" content="https://studio.eroskadima.com/img/og.jpg">
+<meta property="og:url" content="https://studio.eroskadima.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141619'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23D9342B'/%3E%3C/svg%3E">
+<style>[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}</style>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Pages de vente avec paiement intégré, motion design et identité visuelle. Bénin, Afrique francophone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Mise en page : planche de montage — chaque projet est un « plan » horodaté, aperçus vivants (pages qui défilent, vidéos qui tournent) */
+:root{
+  --bg:#EDEFEA; --surface:#F8F9F6; --ink:#141619; --muted:#5B6067; --line:#D3D7CF;
+  --accent:#2B3FE0; --accent-ink:#FFFFFF; --rec:#D9342B; --frame:#1B1E22;
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101214; --surface:#171A1D; --ink:#E8EBE5; --muted:#9AA0A6; --line:#2A2F34;
+  --accent:#8291FF; --accent-ink:#0B0D10; --rec:#FF5A4F; --frame:#000; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101214; --surface:#171A1D; --ink:#E8EBE5; --muted:#9AA0A6; --line:#2A2F34;
+  --accent:#8291FF; --accent-ink:#0B0D10; --rec:#FF5A4F; --frame:#000; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f-body);margin:0;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+.mono{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font:600 16px var(--f-body);text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* barre haute */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;font:800 20px var(--f-display);text-decoration:none;letter-spacing:-.02em}
+.brand i{width:12px;height:12px;border-radius:50%;background:var(--rec);box-shadow:0 0 0 4px color-mix(in srgb,var(--rec) 22%,transparent);animation:rec 1.6s infinite}
+@keyframes rec{50%{opacity:.35}}
+nav.links{display:flex;gap:26px;font-weight:500;font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)} nav.links a:hover{color:var(--ink)}
+@media (max-width:760px){nav.links{display:none}}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-block:72px 64px}
+.hero h1{font-size:clamp(40px,5.2vw,68px);line-height:.98;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{font-size:19px;color:var(--muted);max-width:34em;margin-top:24px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
+.facts div{display:flex;flex-direction:column}
+.facts b{font:700 28px var(--f-display);font-variant-numeric:tabular-nums}
+.facts span{font-size:14px;color:var(--muted)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:44px}}
+
+/* cadres */
+.browser{background:var(--frame);border-radius:12px;padding:30px 0 0;position:relative;box-shadow:0 30px 60px -20px rgba(0,0,0,.35);overflow:hidden}
+.browser::before{content:"";position:absolute;left:14px;top:11px;width:44px;height:9px;background:radial-gradient(circle at 4.5px 4.5px,#FF5F57 4.5px,transparent 5px),radial-gradient(circle at 22px 4.5px,#FEBC2E 4.5px,transparent 5px),radial-gradient(circle at 39.5px 4.5px,#28C840 4.5px,transparent 5px)}
+.browser .url{position:absolute;top:7px;left:76px;right:14px;height:17px;border-radius:5px;background:#2A2E33;color:#B9BEC4;font:500 10.5px/17px var(--f-mono);padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viewport{position:relative;overflow:hidden;background:#000}
+.viewport img{display:block;width:100%;height:auto}
+.scroller img{animation:scrollpage var(--dur,40s) ease-in-out infinite alternate}
+.scroller:hover img{animation-play-state:paused}
+@keyframes scrollpage{0%,6%{transform:translateY(0)}94%,100%{transform:translateY(calc(-100% + var(--h)))}}
+.phone{background:var(--frame);border-radius:34px;padding:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);width:min(250px,100%)}
+.phone .viewport{border-radius:25px}
+.phone video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font:500 12px var(--f-mono);letter-spacing:.04em}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--rec)}
+
+/* sections */
+section{padding-block:72px}
+.sechead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 40px;margin-bottom:40px}
+.sechead h2{font-size:clamp(32px,4.2vw,52px);line-height:1.02;font-weight:800;max-width:14em}
+.sechead p{max-width:30em;color:var(--muted)}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+
+/* projet */
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:48px;align-items:start;padding-block:56px;border-top:1px solid var(--line)}
+.case:first-of-type{border-top:0;padding-top:8px}
+.case.flip{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+.case.flip .txt{order:2}
+.tc{display:flex;gap:14px;align-items:center;color:var(--muted)}
+.tc b{color:var(--rec);font-weight:500}
+.case h3{font-size:clamp(28px,3.2vw,40px);line-height:1.05;margin-top:14px;font-weight:800}
+.case .sum{margin-top:14px;color:var(--muted)}
+.case ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
+.case li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:16px}
+.case li::before{content:"";width:10px;height:10px;margin-top:8px;border:2px solid var(--accent);border-radius:3px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font:500 12px var(--f-mono);padding:6px 10px;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+.case .act{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.case .act .btn{padding:11px 18px;font-size:15px}
+.media{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end}
+.media .browser .viewport{--h:430px;height:430px}
+.media .phone{width:200px}
+.film{background:var(--frame);border-radius:12px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.4)}
+.film video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.film .bar{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;color:#B9BEC4;font:500 11px var(--f-mono);letter-spacing:.06em}
+.film .bar b{color:#FF5A4F;font-weight:500}
+@media (max-width:900px){.case,.case.flip{grid-template-columns:1fr;gap:28px}.case.flip .txt{order:0}.media{grid-template-columns:1fr;justify-items:center}.media .browser{width:100%}.media .browser .viewport{--h:340px;height:340px}}
+
+/* planche des pages */
+.sheet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:8px}
+.thumb{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px}
+.thumb .browser{padding-top:22px;border-radius:9px}
+.thumb .browser::before{left:10px;top:8px;transform:scale(.75);transform-origin:0 0}
+.thumb .browser .url{display:none}
+.thumb img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;transition:transform .3s}
+.thumb:hover img{transform:scale(1.03)}
+.thumb .cap{display:flex;justify-content:space-between;gap:8px;font-size:14px;font-weight:600}
+.thumb .cap span{font:500 11px var(--f-mono);color:var(--muted);letter-spacing:.05em}
+.thumb:focus-visible .browser{outline:3px solid var(--accent);outline-offset:3px}
+@media (max-width:900px){.sheet{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* identité visuelle */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:270px;gap:14px;margin-top:30px}
+.tile{position:relative;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:26px 22px 46px;background:#0F3A24}
+.tile img{display:block;max-width:100%;max-height:100%;object-fit:contain;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.tile:hover img{transform:scale(1.04)}
+.tile .lbl{position:absolute;left:14px;bottom:12px;right:14px;display:flex;justify-content:space-between;gap:8px;font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.tile.or{background:#F08A24}.tile.cr{background:#F4E9D8}.tile.cr .lbl{color:#5a4a34}
+.tile.full{padding:0}.tile.full img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:50% 20%}
+.tile.full::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent);pointer-events:none}.tile.full .lbl{z-index:1}
+.t-aff{grid-column:span 2;grid-row:span 2}
+.t-logo,.t-face,.t-dos,.t-planche{grid-column:span 2}
+.t-ban{grid-column:span 4}.t-cov{grid-column:span 2}
+.t-face{gap:14px}.t-face img.fl{height:190px;width:auto}.t-face img.et{max-height:180px}
+.t-logo img{width:58%}
+@media (max-width:900px){.bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:230px}.t-aff,.t-ban,.t-planche{grid-column:span 2}.t-logo,.t-face,.t-dos,.t-cov{grid-column:span 1}.t-aff{grid-row:span 1}.t-face img.fl{height:150px}}
+@media (max-width:480px){.t-logo,.t-face,.t-dos,.t-cov{grid-column:span 2}}
+@media (prefers-reduced-motion:reduce){.tile img{transition:none}}
+
+
+/* performance réseaux */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--ink);margin-bottom:34px}
+.kpi{padding:18px 18px 0 0}
+.kpi b{display:block;font:800 clamp(30px,4vw,48px)/1 var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpi span{display:block;margin-top:8px;font-size:15px;color:var(--muted)}
+.kpi b em{font-style:normal;color:var(--accent)}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 0}}
+.reel{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(210px,1fr);gap:16px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+.rc{scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;min-width:0}
+.rc .scr{position:relative;border-radius:22px;overflow:hidden;background:#000;border:8px solid var(--frame);aspect-ratio:480/644;cursor:pointer}
+.rc video,.rc .scr img{display:block;width:100%;height:100%;object-fit:cover}
+.rc .snd{position:absolute;right:8px;bottom:8px;font:500 11px var(--f-mono);letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.6);padding:5px 8px;border-radius:6px;pointer-events:none}
+.rc .v{display:flex;align-items:baseline;gap:8px}
+.rc .v b{font:800 28px var(--f-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.rc .v span{font:500 12px var(--f-mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.rc h3{font:600 16px/1.35 var(--f-body)}
+.rc p{font-size:14px;color:var(--muted)}
+.rc .best{position:absolute;left:10px;top:10px;z-index:1;font:500 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:4px 8px;border-radius:5px}
+.reel::-webkit-scrollbar{height:6px}.reel::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
+
+
+/* musique */
+.desk{background:#0D0F12;color:#E8EBE5;border-radius:20px;padding:10px;box-shadow:0 30px 60px -25px rgba(0,0,0,.5)}
+.trk{display:grid;grid-template-columns:auto minmax(0,180px) minmax(0,1fr) auto;gap:18px;align-items:center;padding:16px 16px;border-radius:14px}
+.trk+.trk{border-top:1px solid #23272C}
+.trk.on{background:#171A1F}
+.trk .pl{all:unset;cursor:pointer;width:52px;height:52px;border-radius:50%;background:#E8EBE5;color:#0D0F12;display:flex;align-items:center;justify-content:center;flex:none}
+.trk .pl:focus-visible{outline:3px solid #8291FF;outline-offset:3px}
+.trk.on .pl{background:#8291FF}
+.trk .pl svg{width:20px;height:20px}
+.trk .nm b{display:block;font:700 22px var(--f-display);letter-spacing:-.01em}
+.trk .nm span{display:block;font:500 11px var(--f-mono);letter-spacing:.08em;color:#8A9096;text-transform:uppercase;margin-top:4px}
+.trk canvas{width:100%;height:56px;display:block;cursor:pointer}
+.trk .tm{font:500 13px var(--f-mono);color:#AEB4BB;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:700px){.trk{grid-template-columns:auto minmax(0,1fr) auto}.trk canvas{grid-column:1/-1;grid-row:2}}
+
+
+/* carte des métiers */
+.map{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.mp{display:flex;flex-direction:column;gap:10px;padding:22px 20px;border:1px solid var(--line);border-radius:16px;background:var(--surface);text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+.mp:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 18px 40px -24px color-mix(in srgb,var(--accent) 60%,transparent)}
+.mp-n{font:500 12px var(--f-mono);color:var(--rec);letter-spacing:.08em}
+.mp b{font:700 20px/1.15 var(--f-display);letter-spacing:-.01em}
+.mp p{font-size:14.5px;color:var(--muted);flex:1}
+.mp-go{font:600 14px var(--f-body);color:var(--accent)}
+.mp-fin{background:var(--ink);color:var(--bg);border-color:var(--ink)}.mp-fin p{color:color-mix(in srgb,var(--bg) 72%,var(--ink))}.mp-fin .mp-go{color:color-mix(in srgb,var(--accent) 60%,var(--bg))}
+@media (max-width:1000px){.map{grid-template-columns:repeat(2,minmax(0,1fr))}.mp-fin{grid-column:1/-1}}
+@media (max-width:520px){.map{grid-template-columns:1fr}}
+/* barre des métiers */
+.poles{position:relative}
+.polebar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 68px);z-index:8;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.pb-in{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.pb-in::-webkit-scrollbar{display:none}
+.pb-in a{flex:none;text-decoration:none;font:600 14px var(--f-body);color:var(--muted);padding:8px 14px;border-radius:999px;border:1px solid transparent;transition:background .2s,color .2s}
+.pb-in a:hover{color:var(--ink)}
+.pb-in a.on{background:var(--ink);color:var(--bg)}
+.pb-in a.pb-cta{margin-left:auto;border-color:var(--line)}
+section.pole{padding-block:72px 40px;scroll-margin-top:130px}
+#services,#offres,#contact,#methode,#resultats{scroll-margin-top:80px}
+.polehead{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 28px;align-items:start;padding-bottom:28px;margin-bottom:8px;border-bottom:2px solid var(--ink)}
+.polehead .pnum{font:800 clamp(48px,7vw,96px)/.8 var(--f-display);color:var(--accent);letter-spacing:-.04em}
+.polehead h2{font-size:clamp(30px,4vw,48px);line-height:1.02;font-weight:800}
+.polehead p{margin-top:10px;color:var(--muted);max-width:44em}
+.subres{padding-top:40px;scroll-margin-top:130px}
+.subhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px 30px;margin-bottom:22px}
+.subhead h3{font:800 clamp(24px,3vw,34px)/1.05 var(--f-display);letter-spacing:-.02em}
+.subhead p{color:var(--muted);max-width:30em;font-size:15px}
+/* conseil */
+.fin{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;padding-top:30px;align-items:start}
+.fin h3{font-size:clamp(26px,3vw,36px);line-height:1.08;margin-top:14px;font-weight:800}
+.fin .sum{margin-top:14px;color:var(--muted)}
+.fin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:26px}
+.fc{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.fc b{display:block;font:700 16.5px var(--f-body)}
+.fc p{margin-top:6px;font-size:14.5px;color:var(--muted)}
+.ledger{position:sticky;top:150px;background:var(--ink);color:var(--bg);border-radius:18px;padding:24px 22px}
+.lg-t{font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:color-mix(in srgb,var(--bg) 60%,var(--ink))}
+.lg-row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:14px;align-items:baseline;padding-block:14px;border-bottom:1px solid color-mix(in srgb,var(--bg) 16%,var(--ink))}
+.lg-row b{white-space:nowrap;font:800 28px var(--f-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.lg-row span{font-size:14px;color:color-mix(in srgb,var(--bg) 80%,var(--ink))}
+.ctl{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:6px;font:500 12.5px var(--f-mono)}
+.ctl li{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:8px;background:color-mix(in srgb,var(--bg) 7%,var(--ink))}
+.ctl i{font-style:normal;color:#2FBF71}
+@media (max-width:900px){.fin{grid-template-columns:1fr}.ledger{position:static}.polehead{grid-template-columns:1fr}}
+@media (max-width:560px){.fin-grid{grid-template-columns:1fr}.lg-row{grid-template-columns:104px minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){.mp,.pb-in a{transition:none}}
+
+
+/* acompte Chariow */
+.deposit{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 30px;align-items:center;margin-top:26px;padding:24px 26px;border-radius:18px;background:var(--ink);color:var(--bg)}
+.deposit b{display:block;font:800 clamp(22px,2.6vw,28px)/1.1 var(--f-display);letter-spacing:-.02em}
+.deposit p{margin-top:6px;font-size:15px;color:color-mix(in srgb,var(--bg) 72%,var(--ink))}
+.deposit .btn{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);white-space:nowrap}
+@media (max-width:640px){.deposit{grid-template-columns:1fr}.deposit .btn{justify-content:center}}
+.snap-proxy{position:fixed;left:0;bottom:0;width:1px;height:1px;overflow:hidden;z-index:1001}
+body:has(.cw-modal-wrapper)::before{content:"";position:fixed;inset:0;z-index:1000;background:rgba(10,12,16,.55);pointer-events:none}
+
+/* offres */
+.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.offers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.offers{grid-template-columns:1fr}}
+.offer{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;display:flex;flex-direction:column;gap:14px}
+.offer.feat{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.offer.feat .muted,.offer.feat .from{color:color-mix(in srgb,var(--bg) 70%,var(--ink))}
+.offer h3{font-size:22px;font-weight:700}
+.offer .price{font:800 32px var(--f-display);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.offer .price small{font:500 14px var(--f-body)}
+.offer .from{font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.offer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:15px}
+.offer li{padding-left:18px;position:relative}
+.offer li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:2px;background:var(--accent)}
+.offer.feat li::before{background:var(--rec)}
+.offer .btn{margin-top:auto;justify-content:center;padding:12px 16px;font-size:15px}
+.offer.feat .btn{border-color:var(--bg);color:var(--bg)}
+.note{margin-top:18px;font-size:14px;color:var(--muted)}
+
+/* méthode */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.step{padding:22px 22px 0 0}
+.step .n{font:500 12px var(--f-mono);color:var(--rec);letter-spacing:.08em}
+.step h3{font-size:22px;margin-top:10px;font-weight:700}
+.step p{margin-top:8px;font-size:15.5px;color:var(--muted)}
+@media (max-width:800px){.steps{grid-template-columns:1fr 1fr;gap:10px 0}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.contact h2{font-size:clamp(34px,4.6vw,58px);line-height:1;font-weight:800}
+.lines{display:grid;gap:12px}
+.line{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:16px 18px;background:var(--bg);border:1px solid var(--line);border-radius:12px}
+.line .mono{color:var(--muted)}
+.line strong{font:600 18px var(--f-body);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.line button{all:unset;cursor:pointer;font:500 12px var(--f-mono);padding:7px 11px;border:1px solid var(--line);border-radius:7px}
+.line button:hover{border-color:var(--ink)}
+.line a{font:600 13px var(--f-body);text-decoration:none;color:var(--accent);white-space:nowrap}
+@media (max-width:800px){.contact{grid-template-columns:1fr}.line{grid-template-columns:minmax(0,1fr) auto}.line .mono{grid-column:1/-1}}
+footer{padding-block:34px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* visionneuse */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(8,9,11,.86);display:flex;flex-direction:column;padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.lb[hidden]{display:none}
+.lb .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#E8EBE5;padding:4px 4px 12px;flex-wrap:wrap}
+.lb .bar b{font:700 18px var(--f-display)}
+.lb .tg{display:flex;gap:6px}
+.lb .tg button,.lb .x{all:unset;cursor:pointer;color:#E8EBE5;font:500 12px var(--f-mono);padding:8px 12px;border:1px solid #3A3F45;border-radius:8px}
+.lb .tg button[aria-pressed="true"]{background:#E8EBE5;color:#111}
+.lb .pane{flex:1;overflow:auto;border-radius:10px;background:#000;display:flex;justify-content:center;overscroll-behavior:contain}
+.lb .pane img{display:block;width:100%;max-width:1100px;height:auto;align-self:flex-start}
+.lb .pane.m img{max-width:390px}
+
+/* ===== HERO : showreel animé en direct ===== */
+.hero .wrap{max-width:1320px;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:inline-block;animation:lineup .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.14s}
+.hero h1 em{position:relative}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.09em;background:var(--accent);transform-origin:0 50%;animation:ink 1s .7s cubic-bezier(.6,0,.2,1) both;border-radius:2px}
+@keyframes lineup{from{transform:translateY(105%)}}
+@keyframes ink{from{transform:scaleX(0)}}
+.hero .lede,.hero .ctas,.hero .facts{animation:fadeup .8s .35s both}
+.hero .ctas{animation-delay:.5s}.hero .facts{animation-delay:.65s}
+@keyframes fadeup{from{opacity:0;transform:translateY(14px)}}
+.stage{position:relative;aspect-ratio:10/7.4;width:100%;max-width:100%;container-type:inline-size;border-radius:22px;overflow:hidden;
+  background:#0B0D10;color:#E8EBE5;box-shadow:0 40px 90px -30px rgba(10,14,40,.55),inset 0 0 0 1px rgba(255,255,255,.06);isolation:isolate}
+.stage *{box-sizing:border-box}
+.st-glow{position:absolute;inset:-20%;z-index:0;background:
+  radial-gradient(38% 34% at var(--gx,30%) var(--gy,35%),rgba(43,63,224,.55),transparent 70%),
+  radial-gradient(30% 28% at var(--rx,78%) var(--ry,70%),rgba(217,52,43,.38),transparent 70%)}
+.st-grid{position:absolute;inset:-10%;z-index:0;opacity:.35;background-image:radial-gradient(rgba(255,255,255,.22) 1px,transparent 1.4px);background-size:3.2cqw 3.2cqw}
+.scene{position:absolute;inset:0;z-index:1;perspective:140cqw;perspective-origin:50% 40%}
+.rig{position:absolute;inset:0;transform-style:preserve-3d}
+.st-br{position:absolute;left:5cqw;top:11cqw;width:63cqw;height:44cqw;border-radius:1.4cqw;background:#16191D;padding-top:3.2cqw;
+  box-shadow:0 4cqw 8cqw -2cqw rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08);transform-style:preserve-3d}
+.st-br .dots{position:absolute;left:1.6cqw;top:1.1cqw;display:flex;gap:.7cqw}
+.st-br .dots i{width:1cqw;height:1cqw;border-radius:50%;background:#FF5F57}.st-br .dots i:nth-child(2){background:#FEBC2E}.st-br .dots i:nth-child(3){background:#28C840}
+.st-br .u{position:absolute;left:7.4cqw;right:1.6cqw;top:.75cqw;height:1.7cqw;border-radius:.5cqw;background:#262A30;font:500 1.15cqw/1.7cqw var(--f-mono);color:#AEB4BB;padding:0 1cqw;overflow:hidden;white-space:nowrap}
+.st-br .u b{color:#7EE2A0;font-weight:500}
+.st-vp{position:absolute;left:0;right:0;bottom:0;top:3.2cqw;overflow:hidden;border-radius:0 0 1.4cqw 1.4cqw;background:#000}
+.st-vp img{position:absolute;left:0;top:0;width:100%;height:auto;display:block}
+.st-pay{position:absolute;left:50%;bottom:0;width:58%;transform:translate(-50%,100%);background:#FFFFFF;color:#141619;border-radius:1.4cqw 1.4cqw 0 0;padding:2cqw 2.2cqw 2.2cqw;box-shadow:0 -2cqw 5cqw rgba(0,0,0,.45)}
+.st-pay .h{display:flex;justify-content:space-between;align-items:center;font:700 1.9cqw var(--f-display)}
+.st-pay .h span{font:500 1.05cqw var(--f-mono);color:#2B7A4B;letter-spacing:.06em}
+.st-pay .opt{display:flex;justify-content:space-between;align-items:center;margin-top:1cqw;padding:1cqw 1.2cqw;border:1px solid #DADDE2;border-radius:.8cqw;font:600 1.35cqw var(--f-body)}
+.st-pay .opt.on{border-color:#2B3FE0;box-shadow:0 0 0 2px rgba(43,63,224,.18)}
+.st-pay .opt i{width:1.4cqw;height:1.4cqw;border-radius:50%;border:2px solid #9AA0A6}.st-pay .opt.on i{border:.45cqw solid #2B3FE0}
+.st-pay .go{margin-top:1.4cqw;height:4cqw;border-radius:.9cqw;background:#2B3FE0;color:#fff;display:flex;align-items:center;justify-content:center;gap:1cqw;font:700 1.5cqw var(--f-body);position:relative;overflow:hidden}
+.st-pay .ok{position:absolute;inset:0;background:#1F9D55;display:flex;align-items:center;justify-content:center;gap:1cqw;opacity:0}
+.st-ph{position:absolute;right:7cqw;top:9cqw;width:19cqw;aspect-ratio:9/19;border-radius:3.2cqw;background:#050607;padding:.9cqw;box-shadow:0 5cqw 9cqw -2cqw rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.1)}
+.st-ph video,.st-ph img{width:100%;height:100%;object-fit:cover;border-radius:2.4cqw;display:block;background:#000}
+.st-ph::after{content:"";position:absolute;top:1.6cqw;left:50%;width:6cqw;height:1.5cqw;margin-left:-3cqw;border-radius:1cqw;background:#050607}
+.st-card{position:absolute;width:25cqw;border-radius:1cqw;background:#16191D;padding-top:1.8cqw;box-shadow:0 3cqw 6cqw -1cqw rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08);opacity:0}
+.st-card::before{content:"";position:absolute;left:1cqw;top:.6cqw;width:3.6cqw;height:.7cqw;background:radial-gradient(circle at .35cqw .35cqw,#FF5F57 .35cqw,transparent .4cqw),radial-gradient(circle at 1.5cqw .35cqw,#FEBC2E .35cqw,transparent .4cqw),radial-gradient(circle at 2.65cqw .35cqw,#28C840 .35cqw,transparent .4cqw)}
+.st-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:0 0 1cqw 1cqw}
+.st-card b{position:absolute;left:1cqw;bottom:-3.2cqw;font:500 1.15cqw var(--f-mono);letter-spacing:.06em;color:#C9CED4;white-space:nowrap}
+.st-film{position:absolute;left:5cqw;top:24cqw;width:32cqw;border-radius:1.1cqw;overflow:hidden;background:#000;box-shadow:0 4cqw 8cqw -1cqw rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.1);opacity:0}
+.st-film img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.st-film .fb{display:flex;justify-content:space-between;align-items:center;padding:.8cqw 1.2cqw;font:500 1.1cqw var(--f-mono);color:#C9CED4;background:#0D0F12}
+.st-film .fb b{color:#FF5A4F;font-weight:500}
+.st-film .prog{height:.35cqw;background:#2A2F35}.st-film .prog i{display:block;height:100%;width:0;background:#FF5A4F}
+.st-cur{position:absolute;left:0;top:0;width:3cqw;z-index:5;opacity:0;filter:drop-shadow(0 .4cqw .6cqw rgba(0,0,0,.5))}
+.st-rip{position:absolute;width:5cqw;height:5cqw;margin:-2.5cqw 0 0 -2.5cqw;border-radius:50%;border:.35cqw solid #fff;opacity:0;z-index:4}
+.hud{position:absolute;z-index:6;font:500 1.35cqw var(--f-mono);letter-spacing:.08em;color:#E8EBE5;text-transform:uppercase;display:flex;align-items:center;gap:1cqw}
+.hud.tl{left:2.4cqw;top:2.2cqw}.hud.tr{right:2.4cqw;top:2.2cqw;font-variant-numeric:tabular-nums;color:#AEB4BB}
+.hud.tl i{width:1.2cqw;height:1.2cqw;border-radius:50%;background:#FF5A4F;animation:rec 1.2s infinite}
+.st-beat{position:absolute;z-index:6;left:2.4cqw;bottom:2.2cqw;right:2.4cqw;display:flex;justify-content:space-between;align-items:flex-end;gap:2cqw;pointer-events:none}
+.st-beat .lab{position:relative;height:8.5cqw;flex:1;overflow:hidden}
+.st-beat .lab div{position:absolute;left:0;bottom:0;font:800 4.4cqw/1 var(--f-display);letter-spacing:-.02em;color:#fff;white-space:nowrap;opacity:0}
+.st-beat .lab div small{display:block;font:500 1.25cqw var(--f-mono);letter-spacing:.1em;color:#9AA3FF;margin-bottom:.8cqw;text-transform:uppercase}
+.st-beat .bars{display:flex;gap:.6cqw;padding-bottom:.6cqw}
+.st-beat .bars i{width:4.4cqw;height:.45cqw;border-radius:1cqw;background:rgba(255,255,255,.18);overflow:hidden}
+.st-beat .bars i b{display:block;height:100%;width:0;background:#fff}
+.st-vig{position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(0deg,rgba(11,13,16,.92) 0%,rgba(11,13,16,0) 26%),linear-gradient(180deg,rgba(11,13,16,.6) 0%,rgba(11,13,16,0) 14%)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.hero h1 .ln>span,.hero h1 em::after,.hero .lede,.hero .ctas,.hero .facts{animation:none}}
+
+@media (prefers-reduced-motion:reduce){.scroller img{animation:none}.brand i{animation:none}.btn,.thumb img{transition:none}}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top"><i aria-hidden="true"></i>Kadima Studio</a>
+  <nav class="links" aria-label="Sections"><a href="#services">Métiers</a><a href="#resultats">Résultats</a><a href="#offres">Tarifs</a><a href="#contact">Contact</a></nav>
+  <a class="btn primary" style="padding:10px 16px;font-size:14px" href="https://wa.me/2290198228627" target="_blank" rel="noopener">WhatsApp</a>
+</div></header>
+
+<main id="top">
+<section class="hero" style="padding-block:0"><div class="wrap">
+  <div>
+    <p class="mono muted">Pages de vente · Vidéo · Identité · Musique · Conseil financier · Bénin</p>
+    <h1 style="margin-top:18px"><span class="ln"><span>Des pages qui <em>vendent</em>.</span></span><span class="ln"><span>Des vidéos qui font cliquer.</span></span></h1>
+    <p class="lede">Je conçois des pages de vente où vos clients paient sans quitter la page, et les vidéos qui les y amènent : pubs TikTok et Facebook, films de présentation. Et tout ce qui va avec : identité visuelle et musique. J'accompagne aussi les ONG et les entreprises en administration, finance et trésorerie.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#services">Voir les réalisations</a>
+      <a class="btn" href="#contact">Demander un devis</a>
+    </div>
+    <div class="facts">
+      <div><b>11</b><span>pages en ligne</span></div>
+      <div><b>2</b><span>vidéos livrées</span></div>
+      <div><b>0</b><span>redirection au paiement</span></div>
+      <div><b>25 785</b><span>vues TikTok</span></div>
+    </div>
+  </div>
+  <div class="stage" id="stage" role="img" aria-label="Showreel animé : page de vente Macarotte avec paiement intégré, pages du site Les Outils de l'Auteur, pub verticale et film de présentation">
+    <div class="st-glow" id="stGlow"></div><div class="st-grid" id="stGrid"></div>
+    <div class="scene"><div class="rig" id="rig">
+      <div class="st-card" id="c1"><img src="img/livres-services_thumb.jpg" alt=""><b>/services</b></div>
+      <div class="st-card" id="c2"><img src="img/livres-chansons_thumb.jpg" alt=""><b>/chansons</b></div>
+      <div class="st-card" id="c3"><img src="img/livres-etoile_thumb.jpg" alt=""><b>/etoile</b></div>
+      <div class="st-br" id="br">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <div class="u" id="url"><b>🔒</b> macarotte.eroskadima.com</div>
+        <div class="st-vp" id="vp">
+          <img id="imMac" src="img/macarotte_d.jpg" alt="">
+          <img id="imLiv" src="img/livres-accueil_d.jpg" alt="" style="opacity:0">
+          <div class="st-pay" id="pay">
+            <div class="h">Le guide Macarotte <span>● PAIEMENT SÉCURISÉ</span></div>
+            <div class="opt on" id="o1"><span>Mobile Money</span><i></i></div>
+            <div class="opt" id="o2"><span>Carte bancaire</span><i></i></div>
+            <div class="go" id="go">Payer 4 900 FCFA<div class="ok" id="ok">✓ Réglé sans quitter la page</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="st-ph" id="ph"><video id="phv" src="vid/pub-macarotte.mp4" poster="vid/pub-macarotte.jpg" autoplay muted loop playsinline></video></div>
+      <div class="st-film" id="film"><img src="vid/film-korogone.jpg" alt=""><div class="prog"><i id="fprog"></i></div><div class="fb"><span><b>●</b> FILM 16:9</span><span id="ftc">00:00 / 01:01</span></div></div>
+      <div class="st-rip" id="rip"></div>
+      <svg class="st-cur" id="cur" viewBox="0 0 24 24"><path d="M4 2l15 9.5-6.6 1.4 3.8 7.4-2.9 1.5-3.8-7.4L4.7 19z" fill="#fff" stroke="#0B0D10" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    </div></div>
+    <div class="st-vig"></div>
+    <div class="hud tl"><i></i>Kadima Studio · showreel</div>
+    <div class="hud tr" id="tc">00:00:00:00</div>
+    <div class="st-beat">
+      <div class="lab">
+        <div id="L0"><small>Web · Macarotte</small>Page de vente</div>
+        <div id="L1"><small>Web · sans redirection</small>Paiement intégré</div>
+        <div id="L2"><small>Web · Les Outils de l'Auteur</small>Tunnel multi-pages</div>
+        <div id="L3"><small>Vidéo · Dr KOROGONE</small>Pub &amp; film</div>
+      </div>
+      <div class="bars"><i><b id="B0"></b></i><i><b id="B1"></b></i><i><b id="B2"></b></i><i><b id="B3"></b></i></div>
+    </div>
+  </div>
+
+</div></section>
+
+<section id="services"><div class="wrap">
+  <div class="sechead">
+    <h2>Cinq métiers, un seul interlocuteur.</h2>
+    <p>Choisissez ce qui vous intéresse : chaque carte mène aux réalisations correspondantes.</p>
+  </div>
+  <div class="map">
+    <a class="mp" href="#web"><span class="mp-n">01</span><b>Pages de vente et sites</b><p>Paiement intégré, tunnels, pages qui convertissent.</p><span class="mp-go">3 projets →</span></a>
+    <a class="mp" href="#video"><span class="mp-n">02</span><b>Vidéo et motion design</b><p>Pubs TikTok et Facebook, films de présentation.</p><span class="mp-go">2 projets + résultats →</span></a>
+    <a class="mp" href="#identite"><span class="mp-n">03</span><b>Identité visuelle</b><p>Logo, étiquettes, affiches, couvertures.</p><span class="mp-go">7 visuels →</span></a>
+    <a class="mp" href="#musique"><span class="mp-n">04</span><b>Musique</b><p>Chansons, jingles, habillage sonore.</p><span class="mp-go">3 titres →</span></a>
+    <a class="mp mp-fin" href="#conseil"><span class="mp-n">05</span><b>Conseil administratif et financier</b><p>Comptabilité, trésorerie, audit, procédures pour ONG et entreprises.</p><span class="mp-go">Voir le détail →</span></a>
+  </div>
+</div></section>
+
+<div class="poles">
+<nav class="polebar" aria-label="Métiers"><div class="wrap"><div class="pb-in">
+  <a href="#web" data-pb="web">Pages &amp; sites</a><a href="#video" data-pb="video">Vidéo</a><a href="#identite" data-pb="identite">Identité</a><a href="#musique" data-pb="musique">Musique</a><a href="#conseil" data-pb="conseil">Conseil</a><a href="#offres" data-pb="offres" class="pb-cta">Tarifs</a>
+</div></div></nav>
+<section id="web" class="pole" data-pole><div class="wrap">
+  <header class="polehead">
+    <p class="pnum">01</p>
+    <div><h2>Pages de vente et sites</h2><p>Chaque aperçu est la vraie page. Survolez pour mettre en pause, ou ouvrez-la en entier, version ordinateur et mobile.</p></div>
+  </header>
+  <article class="case">
+    <div class="txt">
+      <div class="tc mono"><b>● Web 01</b><span>Page de vente</span></div>
+      <h3>Macarotte, guide de l'huile de carotte</h3>
+      <p class="sum">Un guide numérique à 4 900 FCFA. La page devait convaincre, rassurer et encaisser au même endroit.</p>
+      <ul>
+        <li>Paiement Mobile Money et carte directement sur la page, sans redirection vers une boutique</li>
+        <li>Popup bonus « 80 000 FCFA offerts » (logo, étiquette, affiche), une fois par visite</li>
+        <li>Calculateur de marge interactif, FAQ, contacts WhatsApp et e-mail</li>
+        <li>Nom de domaine, hébergement et redirections configurés</li>
+      </ul>
+      <div class="chips"><span class="chip">Chariow intégré</span><span class="chip">Mobile d'abord</span><span class="chip">1 page</span></div>
+      <div class="act">
+        <button class="btn" data-open="macarotte" data-title="Macarotte">Voir la page entière</button>
+        <a class="btn" href="https://macarotte.eroskadima.com" target="_blank" rel="noopener">Site en ligne ↗</a>
+      </div>
+    </div>
+    <div class="media">
+      <div class="browser"><div class="url">macarotte.eroskadima.com</div>
+        <div class="viewport scroller" style="--dur:50s"><img src="img/macarotte_d.jpg" alt="Page Macarotte complète, version ordinateur" loading="lazy"></div></div>
+      <div class="phone"><div class="viewport scroller" style="--dur:60s;--h:400px;height:400px"><img src="img/macarotte_m.jpg" alt="Page Macarotte, version mobile" loading="lazy"></div></div>
+    </div>
+  </article>
+
+  <article class="case flip">
+    <div class="txt">
+      <div class="tc mono"><b>● Web 02</b><span>Tunnel de vente multi-pages</span></div>
+      <h3>Les Outils de l'Auteur</h3>
+      <p class="sum">Un catalogue de livres et de canevas d'écriture, avec des packs, des services et des histoires. Tout l'univers d'un auteur, organisé pour pousser l'offre principale à 9 900 FCFA.</p>
+      <ul>
+        <li>Accueil tunnel, Services, Chansons, Histoires, Créer ton tunnel : une navigation commune</li>
+        <li>Chaque bouton d'achat ouvre le paiement sur place</li>
+        <li>Vidéo en fond d'accueil, barre d'achat qui suit la lecture, popup d'aimant à prospects</li>
+        <li>Lecture vérifiée de 320 à 1440 px de large, sans débordement</li>
+      </ul>
+      <div class="chips"><span class="chip">6 pages</span><span class="chip">14 produits</span><span class="chip">Vercel + GitHub</span></div>
+      <div class="act">
+        <button class="btn" data-open="livres-accueil" data-title="Les Outils de l'Auteur — accueil">Voir l'accueil entier</button>
+        <a class="btn" href="https://livres.eroskadima.com" target="_blank" rel="noopener">Site en ligne ↗</a>
+      </div>
+    </div>
+    <div>
+      <div class="browser"><div class="url">livres.eroskadima.com</div>
+        <div class="viewport scroller" style="--dur:44s;--h:430px;height:430px"><img src="img/livres-accueil_d.jpg" alt="Accueil Les Outils de l'Auteur" loading="lazy"></div></div>
+    </div>
+  </article>
+
+  <div style="padding-bottom:56px">
+    <p class="mono muted" style="margin-bottom:16px">Toutes les pages du site · cliquez pour ouvrir</p>
+    <div class="sheet">
+      <button class="thumb" data-open="livres-services" data-title="Services"><div class="browser"><img src="img/livres-services_thumb.jpg" alt="" loading="lazy"></div><div class="cap">Services<span>/services</span></div></button>
+      <button class="thumb" data-open="livres-chansons" data-title="Chansons"><div class="browser"><img src="img/livres-chansons_thumb.jpg" alt="" loading="lazy"></div><div class="cap">Chansons<span>/chansons</span></div></button>
+      <button class="thumb" data-open="livres-tunnel" data-title="Créer ton tunnel"><div class="browser"><img src="img/livres-tunnel_thumb.jpg" alt="" loading="lazy"></div><div class="cap">Créer ton tunnel<span>/tunnel</span></div></button>
+      <button class="thumb" data-open="livres-histoires" data-title="Histoires"><div class="browser"><img src="img/livres-histoires_thumb.jpg" alt="" loading="lazy"></div><div class="cap">Histoires<span>/histoires</span></div></button>
+      <button class="thumb" data-open="livres-histoire" data-title="L'Autel et l'Héritage"><div class="browser"><img src="img/livres-histoire_thumb.jpg" alt="" loading="lazy"></div><div class="cap">Une histoire<span>lecture</span></div></button>
+      <button class="thumb" data-open="livres-etoile" data-title="Étoile"><div class="browser"><img src="img/livres-etoile_thumb.jpg" alt="" loading="lazy"></div><div class="cap">Étoile<span>/etoile</span></div></button>
+      <button class="thumb" data-open="livres-etoile-article" data-title="La Mémoire des Oracles"><div class="browser"><img src="img/livres-etoile-article_thumb.jpg" alt="" loading="lazy"></div><div class="cap">Article Étoile<span>don libre</span></div></button>
+      <button class="thumb" data-open="livres-accueil" data-title="Les Outils de l'Auteur — accueil"><div class="browser"><img src="img/livres-accueil_thumb.jpg" alt="" loading="lazy"></div><div class="cap">Accueil<span>/</span></div></button>
+    </div>
+  </div>
+
+  <article class="case">
+    <div class="txt">
+      <div class="tc mono"><b>● Web 03</b><span>Espace éditorial immersif</span></div>
+      <h3>Étoile, des articles en accès libre</h3>
+      <p class="sum">Une rubrique d'articles sur la recherche et la conscience. Le lecteur lit gratuitement et donne ce qu'il veut, à partir de 656 FCFA (environ 1 €).</p>
+      <ul>
+        <li>Univers visuel propre : jardin de nuit, fusion jour/nuit, vidéos d'ambiance générées par IA</li>
+        <li>Jauges animées « valeur suggérée » et bouton de don à prix libre, branché sur un vrai paiement</li>
+        <li>Animations au défilement, avec une version calme pour qui la préfère</li>
+      </ul>
+      <div class="chips"><span class="chip">Prix libre</span><span class="chip">Vidéo de fond</span><span class="chip">4 pages</span></div>
+      <div class="act">
+        <button class="btn" data-open="livres-etoile" data-title="Étoile">Voir la page entière</button>
+        <a class="btn" href="https://livres.eroskadima.com/etoile/" target="_blank" rel="noopener">En ligne ↗</a>
+      </div>
+    </div>
+    <div class="browser"><div class="url">livres.eroskadima.com/etoile</div>
+      <div class="viewport scroller" style="--dur:34s;--h:430px;height:430px"><img src="img/livres-etoile_d.jpg" alt="Page Étoile" loading="lazy"></div></div>
+  </article>
+</div></section>
+<section id="video" class="pole band" data-pole><div class="wrap">
+  <header class="polehead">
+    <p class="pnum">02</p>
+    <div><h2>Vidéo et motion design</h2><p>Des vidéos courtes pour vendre, des films pour présenter. Touchez une vidéo pour activer le son.</p></div>
+  </header>
+  <article class="case">
+    <div class="txt">
+      <div class="tc mono"><b>● Vidéo 01</b><span>Pub motion 9:16</span></div>
+      <h3>Pub Macarotte, 30 secondes pour TikTok et Facebook</h3>
+      <p class="sum">Une pub verticale pour pousser le guide sur les réseaux. Près de 3 000 vues en 21 heures.</p>
+      <ul>
+        <li>Script court, voix off, sous-titres animés mot à mot</li>
+        <li>Musique et effets composés sur mesure (impacts, montées, scintillements)</li>
+        <li>Rythme calé sur la voix, appel à l'action final vers la page</li>
+      </ul>
+      <div class="chips"><span class="chip">1080×1920</span><span class="chip">00:30</span><span class="chip">Musique originale</span></div>
+    </div>
+    <div class="media" style="grid-template-columns:auto;justify-items:center">
+      <div class="phone" style="width:260px"><div class="viewport"><video src="vid/pub-macarotte.mp4" poster="vid/pub-macarotte.jpg" controls playsinline preload="none" aria-label="Pub Macarotte avec le son"></video></div></div>
+    </div>
+  </article>
+
+  <article class="case flip">
+    <div class="txt">
+      <div class="tc mono"><b>● Vidéo 02</b><span>Film de présentation 16:9</span></div>
+      <h3>Portrait d'un expert : Dr Eloi Méré KOROGONE</h3>
+      <p class="sum">Une commande professionnelle : présenter en une minute trente ans de travail sur le foncier et l'environnement au Bénin, à partir d'un CV et d'une photo.</p>
+      <ul>
+        <li>Script écrit à partir du CV et des sources publiques, voix off professionnelle</li>
+        <li>Portrait détouré, carte du Bénin animée, compteur « 300 plans fonciers ruraux »</li>
+        <li>Musique originale de style documentaire, qui s'efface sous la voix</li>
+      </ul>
+      <div class="chips"><span class="chip">1920×1080</span><span class="chip">01:01</span><span class="chip">−14 LUFS</span></div>
+    </div>
+    <div class="film">
+      <video src="vid/film-korogone.mp4" poster="vid/film-korogone.jpg" controls playsinline preload="none" aria-label="Film de présentation du Dr KOROGONE"></video>
+      <div class="bar"><span><b>●</b> FILM · 16:9</span><span>00:00 → 01:01</span></div>
+    </div>
+  </article>
+  <div class="subres" id="resultats">
+    <div class="subhead"><h3>Performance sur les réseaux</h3><p>Vidéos publiées sur TikTok pour mes propres offres. Chiffres relevés le 20 octobre 2026.</p></div>
+  <div class="kpis">
+    <div class="kpi"><b>25 785</b><span>vues cumulées sur ces 5 vidéos</span></div>
+    <div class="kpi"><b>8 915</b><span>vues pour la meilleure</span></div>
+    <div class="kpi"><b>2 964</b><span>vues en 21 h pour la pub Macarotte</span></div>
+    <div class="kpi"><b>531</b><span>abonnés sur le compte</span></div>
+  </div>
+  <div class="reel">
+      <div class="rc">
+        <div class="scr" data-reel><span class="best">Meilleure vidéo</span><video src="vid/rs/pack.mp4" poster="vid/rs/pack.jpg" muted loop playsinline preload="none" aria-label="Pack Auteur Complet : avatar IA qui présente l'offre"></video><span class="snd">🔇 Toucher pour le son</span></div>
+        <div class="v"><b>8 915</b><span>vues</span></div>
+        <h3>Pack Auteur Complet : avatar IA qui présente l'offre</h3>
+        <p>217 j'aime · 35 enregistrements</p>
+      </div>
+      <div class="rc">
+        <div class="scr" data-reel><video src="vid/rs/livre.mp4" poster="vid/rs/livre.jpg" muted loop playsinline preload="none" aria-label="Pub livre, personnages générés par IA"></video><span class="snd">🔇 Toucher pour le son</span></div>
+        <div class="v"><b>6 666</b><span>vues</span></div>
+        <h3>Pub livre, personnages générés par IA</h3>
+        <p>131 j'aime · 25 enregistrements</p>
+      </div>
+      <div class="rc">
+        <div class="scr" data-reel><video src="vid/rs/checklist.mp4" poster="vid/rs/checklist.jpg" muted loop playsinline preload="none" aria-label="Tunnel de vente : avant / après, checklist offerte"></video><span class="snd">🔇 Toucher pour le son</span></div>
+        <div class="v"><b>3 719</b><span>vues</span></div>
+        <h3>Tunnel de vente : avant / après, checklist offerte</h3>
+        <p>105 j'aime · 12 enregistrements</p>
+      </div>
+      <div class="rc">
+        <div class="scr" data-reel><video src="vid/rs/site.mp4" poster="vid/rs/site.jpg" muted loop playsinline preload="none" aria-label="« Un site qui vend pour toi » : visite des pages"></video><span class="snd">🔇 Toucher pour le son</span></div>
+        <div class="v"><b>3 521</b><span>vues</span></div>
+        <h3>« Un site qui vend pour toi » : visite des pages</h3>
+        <p>35 j'aime · 11 enregistrements</p>
+      </div>
+      <div class="rc">
+        <div class="scr" data-reel><video src="vid/rs/macarotte.mp4" poster="vid/rs/macarotte.jpg" muted loop playsinline preload="none" aria-label="Pub motion Macarotte 30 s"></video><span class="snd">🔇 Toucher pour le son</span></div>
+        <div class="v"><b>2 964</b><span>vues</span></div>
+        <h3>Pub motion Macarotte 30 s</h3>
+        <p>44 j'aime · en ligne depuis 21 h</p>
+      </div>
+  </div>
+  </div>
+
+</div></section>
+<section id="identite" class="pole" data-pole><div class="wrap">
+  <header class="polehead">
+    <p class="pnum">03</p>
+    <div><h2>Identité visuelle</h2><p>Une marque complète pour une huile artisanale : logo, étiquettes prêtes à imprimer, affiche, couverture et bannière, dans une même charte.</p></div>
+  </header>
+  <div class="case" style="display:block;border:0;padding-top:0">
+    <div class="tc mono"><b>● Identité 01</b><span>Marque complète</span></div>
+    <h3 style="margin-top:14px">Macarotte, de la marque au flacon</h3>
+  <div class="bento">
+      <figure class="tile full t-aff" style="margin:0"><img src="img/id/affiche.jpg" alt="Affiche publicitaire Ma Carotte, flacon entre deux bottes de carottes" loading="lazy"><figcaption class="lbl" style="color:#fff"><span>Affiche réseaux</span><span>4:5</span></figcaption></figure>
+      <figure class="tile t-logo" style="margin:0"><img src="img/id/logo.png" alt="Logo Macarotte : soleil et tranche de carotte" loading="lazy"><figcaption class="lbl"><span>Logo</span><span>Emblème</span></figcaption></figure>
+      <figure class="tile or t-face" style="margin:0"><img class="fl" src="img/id/flacon.png" alt="Flacon Ma Carotte 100 ml" loading="lazy"><img class="et" src="img/id/etiquette-face.png" alt="Étiquette face Macarotte 100 ml" loading="lazy" style="max-width:48%"><figcaption class="lbl" style="color:#3a1a00"><span>Étiquette face</span><span>100 ml</span></figcaption></figure>
+      <figure class="tile t-dos" style="margin:0;background:#0A2A19"><img src="img/id/etiquette-dos.png" alt="Étiquette dos : ingrédients, utilisation, précautions, lot" loading="lazy"><figcaption class="lbl"><span>Étiquette dos</span><span>Mentions légales</span></figcaption></figure>
+      <figure class="tile cr t-planche" style="margin:0"><img src="img/id/etiquettes-planche.png" alt="Planche d'étiquettes pour flacons de 100 ml et 1 litre" loading="lazy"><figcaption class="lbl"><span>Planche d'impression</span><span>100 ml · 1 L</span></figcaption></figure>
+      <figure class="tile full t-ban" style="margin:0"><img src="img/id/banniere.jpg" alt="Bannière de la boutique en ligne pour le guide" loading="lazy"><figcaption class="lbl" style="color:#fff"><span>Bannière boutique</span><span>16:9</span></figcaption></figure>
+      <figure class="tile full t-cov" style="margin:0"><img src="img/id/couverture.jpg" alt="Couverture du guide L'huile de carotte" loading="lazy"><figcaption class="lbl" style="color:#fff"><span>Couverture du guide</span><span>A4</span></figcaption></figure>
+    </div>
+  </div>
+
+</div></section>
+<section id="musique" class="pole band" data-pole><div class="wrap">
+  <header class="polehead">
+    <p class="pnum">04</p>
+    <div><h2>Musique</h2><p>Je compose dans tous les genres, pour tout type de sujet.</p></div>
+  </header>
+  <article class="case" style="grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);border:0;padding-top:0">
+    <div class="txt">
+      <div class="tc mono"><b>● Musique 01</b><span>Compositions originales</span></div>
+      <h3>Trois titres à écouter</h3>
+      <p class="sum">Les musiques de la pub Macarotte et du film du Dr KOROGONE sont aussi composées sur mesure.</p>
+      <ul>
+        <li>Chanson personnalisée : mariage, anniversaire, hommage, déclaration</li>
+        <li>Musique et jingle de marque pour vos pubs et vos vidéos</li>
+        <li>Habillage sonore : ambiance, effets, mixage avec la voix off</li>
+      </ul>
+      <div class="act"><a class="btn" href="https://livres.eroskadima.com/chansons/" target="_blank" rel="noopener">Formules chansons ↗</a></div>
+    </div>
+    <div class="desk" id="desk">
+    <div class="trk" data-trk="makelele">
+      <button class="pl" aria-label="Écouter Makélélé"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></button>
+      <div class="nm"><b>Makélélé</b><span>Titre 1 · composition originale</span></div>
+      <canvas aria-hidden="true"></canvas>
+      <span class="tm"><span class="cur">0:00</span> / 3:26</span>
+      <audio src="aud/makelele.mp3" preload="none"></audio>
+    </div>
+    <div class="trk" data-trk="mololor">
+      <button class="pl" aria-label="Écouter Mololor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></button>
+      <div class="nm"><b>Mololor</b><span>Titre 2 · composition originale</span></div>
+      <canvas aria-hidden="true"></canvas>
+      <span class="tm"><span class="cur">0:00</span> / 3:16</span>
+      <audio src="aud/mololor.mp3" preload="none"></audio>
+    </div>
+    <div class="trk" data-trk="maudia">
+      <button class="pl" aria-label="Écouter Maudia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></button>
+      <div class="nm"><b>Maudia</b><span>Titre 3 · composition originale</span></div>
+      <canvas aria-hidden="true"></canvas>
+      <span class="tm"><span class="cur">0:00</span> / 3:01</span>
+      <audio src="aud/maudia.mp3" preload="none"></audio>
+    </div>
+    </div>
+  </article>
+
+</div></section>
+<section id="conseil" class="pole" data-pole><div class="wrap">
+  <header class="polehead">
+    <p class="pnum">05</p>
+    <div><h2>Conseil administratif et financier</h2><p>Pour les ONG, les associations et les entreprises qui veulent des comptes clairs, une trésorerie suivie et des audits sans surprise.</p></div>
+  </header>
+  <div class="fin">
+    <div class="fin-l">
+      <div class="tc mono"><b>● Conseil 01</b><span>ONG · associations · entreprises</span></div>
+      <h3>Une gestion propre, prête pour le bailleur et pour l'audit.</h3>
+      <p class="sum">Responsable administratif et financier d'une ONG béninoise sur un projet financé par un bailleur international, je mets cette pratique au service d'autres structures : organiser, fiabiliser, rendre compte.</p>
+      <div class="fin-grid">
+        <div class="fc"><b>Comptabilité SYCEBNL et SYSCOHADA</b><p>Tenue, clôture et états financiers : bilan, compte de résultat, flux de trésorerie, notes annexes.</p></div>
+        <div class="fc"><b>Trésorerie et suivi budgétaire</b><p>Suivi par bailleur, projet et activité. Rapports financiers aux partenaires.</p></div>
+        <div class="fc"><b>Préparation des audits</b><p>Questionnaire pré-audit, lettre d'affirmation, pièces justificatives, plan d'action.</p></div>
+        <div class="fc"><b>Procédures et conformité</b><p>Manuel de procédures, seuils de passation des marchés, démarche anti-corruption ISO 37001.</p></div>
+        <div class="fc"><b>Fiscalité et social au Bénin</b><p>Obligations DGI (retenues, plafonds de paiement en espèces) et CNSS.</p></div>
+        <div class="fc"><b>Outils et formation</b><p>Classeurs Excel automatisés sur mesure et formation de vos équipes, IA comprise.</p></div>
+      </div>
+    </div>
+    <aside class="ledger" aria-label="Exemples d'outils réalisés">
+      <p class="lg-t">Outils réalisés</p>
+      <div class="lg-row"><b>≈ 3 300</b><span>formules dans un système automatisé d'états financiers SYCEBNL, avec 16 contrôles de cohérence</span></div>
+      <div class="lg-row"><b>13</b><span>feuilles dans une boîte à outils de RAF : trésorerie, budget bailleur, seuils d'achats, tableau de bord</span></div>
+      <div class="lg-row"><b>1</b><span>dossier complet de préparation à un audit externe mandaté par un bailleur</span></div>
+      <p class="lg-t" style="margin-top:22px">Exemples de contrôles intégrés</p>
+      <ul class="ctl">
+        <li><span>Équilibre actif / passif</span><i>OK</i></li>
+        <li><span>Résultat du bilan = compte de résultat</span><i>OK</i></li>
+        <li><span>Trésorerie des flux = trésorerie du bilan</span><i>OK</i></li>
+        <li><span>Équilibre des à-nouveaux</span><i>OK</i></li>
+        <li><span>Intangibilité du bilan d'ouverture</span><i>OK</i></li>
+      </ul>
+    </aside>
+  </div>
+
+</div></section>
+</div>
+
+<section id="offres" class="band"><div class="wrap">
+  <div class="sechead">
+    <h2>Tarifs.</h2>
+    <p>Prix de départ en FCFA. Le devis final dépend du nombre de pages, de la longueur de la vidéo et des textes à écrire.</p>
+  </div>
+  <div class="offers">
+    <div class="offer">
+      <p class="from">À partir de</p>
+      <h3>Pub motion 30 s</h3>
+      <p class="price">45 000 <small>FCFA</small></p>
+      <ul><li>Script proposé, vous enregistrez ou je fournis la voix</li><li>Musique et effets sur mesure</li><li>Format 9:16 TikTok, Reels, Facebook</li></ul>
+      <a class="btn" href="https://wa.me/2290198228627" target="_blank" rel="noopener">Demander</a>
+    </div>
+    <div class="offer">
+      <p class="from">À partir de</p>
+      <h3>Page de vente</h3>
+      <p class="price">75 000 <small>FCFA</small></p>
+      <ul><li>Textes de vente et mise en page</li><li>Paiement intégré, sans redirection</li><li>Domaine et mise en ligne</li></ul>
+      <a class="btn" href="https://wa.me/2290198228627" target="_blank" rel="noopener">Demander</a>
+    </div>
+    <div class="offer feat">
+      <p class="from">Le plus demandé</p>
+      <h3>Lancement complet</h3>
+      <p class="price">110 000 <small>FCFA</small></p>
+      <ul><li>Page de vente + pub 30 s</li><li>Popup bonus et FAQ</li><li>Liens prêts pour vos réseaux</li></ul>
+      <a class="btn" href="https://wa.me/2290198228627" target="_blank" rel="noopener">Demander</a>
+    </div>
+    <div class="offer">
+      <p class="from">À partir de</p>
+      <h3>Film de présentation 60 s</h3>
+      <p class="price">95 000 <small>FCFA</small></p>
+      <ul><li>Pour experts, cabinets, ONG</li><li>Script, voix off, musique originale</li><li>16:9 pour LinkedIn, YouTube, salons</li></ul>
+      <a class="btn" href="https://wa.me/2290198228627" target="_blank" rel="noopener">Demander</a>
+    </div>
+    <div class="offer">
+      <p class="from">À partir de</p>
+      <h3>Identité visuelle</h3>
+      <p class="price">65 000 <small>FCFA</small></p>
+      <ul><li>Logo et charte de couleurs</li><li>Étiquettes prêtes à imprimer</li><li>Affiche pour vos réseaux</li></ul>
+      <a class="btn" href="https://wa.me/2290198228627" target="_blank" rel="noopener">Demander</a>
+    </div>
+  </div>
+    <div class="offer">
+      <p class="from">Sur devis</p>
+      <h3>Conseil administratif et financier</h3>
+      <p class="price" style="font-size:24px">Diagnostic, mission ou suivi</p>
+      <ul><li>Comptabilité SYCEBNL / SYSCOHADA</li><li>Trésorerie, budget, rapports bailleurs</li><li>Préparation d'audit et procédures</li></ul>
+      <a class="btn" href="https://wa.me/2290198228627" target="_blank" rel="noopener">Demander</a>
+    </div>
+  </div>
+  <div class="deposit">
+    <div><b>Devis validé ? Réservez votre créneau.</b><p>Réglez votre acompte ici même, en Mobile Money ou par carte, sans quitter la page. Vous versez le montant convenu sur WhatsApp, à partir de 3 000 FCFA.</p></div>
+    <a class="btn js-buy" href="https://boutique.eroskadima.com/prd_opy6214t" target="_blank" rel="noopener">Payer mon acompte</a>
+  </div>
+  <p class="note">Besoin d'un site de plusieurs pages ? Le tunnel clé en main est à 150 000 FCFA. Chanson personnalisée dès 6 000 FCFA ; musique de pub ou d'entreprise sur devis.</p>
+</div></section>
+
+<section id="methode"><div class="wrap">
+  <div class="sechead"><h2>Comment on travaille.</h2><p>Tout se passe sur WhatsApp. Vous validez chaque étape avant la suivante.</p></div>
+  <div class="steps">
+    <div class="step"><p class="n">ÉTAPE 1</p><h3>Le brief et l'acompte</h3><p>Quelques questions sur votre projet, un devis, puis l'acompte réglé en ligne pour réserver votre créneau.</p></div>
+    <div class="step"><p class="n">ÉTAPE 2</p><h3>La première version</h3><p>Je vous montre la page ou la vidéo complète, pas un croquis.</p></div>
+    <div class="step"><p class="n">ÉTAPE 3</p><h3>Les retouches</h3><p>On ajuste textes, couleurs et rythme jusqu'à ce que ce soit juste.</p></div>
+    <div class="step"><p class="n">ÉTAPE 4</p><h3>La mise en ligne</h3><p>Page publiée sur votre domaine, paiement testé, vidéos livrées aux bons formats.</p></div>
+  </div>
+</div></section>
+
+<section id="contact" class="band"><div class="wrap contact">
+  <div>
+    <p class="mono muted">Contact</p>
+    <h2 style="margin-top:14px">Parlons de votre projet.</h2>
+    <p class="muted" style="margin-top:18px;max-width:30em">Décrivez votre besoin en deux phrases : une page, une vidéo, une identité, une musique ou un conseil en gestion. Je vous réponds avec une proposition et un prix.</p>
+  </div>
+  <div class="lines">
+    <div class="line"><span class="mono">WhatsApp Bénin</span><strong>+229 01 98 22 86 27</strong><span style="display:flex;gap:10px;align-items:center"><button data-copy="+229 01 98 22 86 27">Copier</button><a href="https://wa.me/2290198228627" target="_blank" rel="noopener">Écrire ↗</a></span></div>
+    <div class="line"><span class="mono">WhatsApp intl.</span><strong>+44 74 51 25 67 34</strong><span style="display:flex;gap:10px;align-items:center"><button data-copy="+44 74 51 25 67 34">Copier</button><a href="https://wa.me/447451256734" target="_blank" rel="noopener">Écrire ↗</a></span></div>
+    <div class="line"><span class="mono">E-mail</span><strong>eroskadima@gmail.com</strong><span><button data-copy="eroskadima@gmail.com">Copier</button></span></div>
+    <a class="btn primary js-buy" style="justify-content:center" href="https://boutique.eroskadima.com/prd_opy6214t" target="_blank" rel="noopener">Payer un acompte en ligne</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>Kadima Studio · Eros Kadima, Bénin</span><span class="mono">Web · Vidéo · Identité · Musique · Conseil</span></div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lbt">
+  <div class="bar"><b id="lbt">Page</b>
+    <div class="tg"><button id="tgD" aria-pressed="true">Ordinateur</button><button id="tgM" aria-pressed="false">Mobile</button><button class="x" id="lbx" aria-label="Fermer">Fermer ✕</button></div></div>
+  <div class="pane" id="pane"><img id="lbi" alt=""></div>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'),img=document.getElementById('lbi'),pane=document.getElementById('pane'),t=document.getElementById('lbt');
+  var D=document.getElementById('tgD'),M=document.getElementById('tgM'),cur='',last=null;
+  function show(mode){img.src='img/'+cur+'_'+mode+'.jpg';pane.className='pane'+(mode==='m'?' m':'');pane.scrollTop=0;D.setAttribute('aria-pressed',mode==='d');M.setAttribute('aria-pressed',mode==='m');}
+  function open(k,title,btn){cur=k;last=btn;t.textContent=title;img.alt='Capture complète : '+title;show(window.innerWidth<700?'m':'d');lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lbx').focus();}
+  function close(){lb.hidden=true;document.body.style.overflow='';if(last)last.focus();}
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){open(b.dataset.open,b.dataset.title,b)})});
+  D.onclick=function(){show('d')};M.onclick=function(){show('m')};
+  document.getElementById('lbx').onclick=close;
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close()});
+  // calage du défilement : hauteur du cadre
+  document.querySelectorAll('.scroller').forEach(function(v){var h=v.getBoundingClientRect().height;if(h)v.style.setProperty('--h',h+'px')});
+  window.addEventListener('resize',function(){document.querySelectorAll('.scroller').forEach(function(v){v.style.setProperty('--h',v.getBoundingClientRect().height+'px')})});
+  // copier
+  document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+    var v=b.dataset.copy;function ok(){var o=b.textContent;b.textContent='Copié';setTimeout(function(){b.textContent=o},1400)}
+    try{navigator.clipboard.writeText(v).then(ok,function(){sel(b)})}catch(e){sel(b)}
+    function sel(b){var s=b.closest('.line').querySelector('strong');var r=document.createRange();r.selectNodeContents(s);var w=getSelection();w.removeAllRanges();w.addRange(r)}
+  })});
+})();
+</script>
+<script>
+(function(){
+  var S=document.getElementById('stage'); if(!S) return;
+  var $=function(i){return document.getElementById(i)};
+  var T=14, cl=function(x,a,b){return Math.min(b===undefined?1:b,Math.max(a||0,x))}, p=function(t,a,b){return cl((t-a)/(b-a))};
+  var eo=function(x){return 1-Math.pow(1-x,3)}, eio=function(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+  var back=function(x){var c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+  var win=function(t,a,b,fi,fo){return Math.min(p(t,a,a+fi),1-p(t,b-fo,b))};
+  var lerp=function(a,b,x){return a+(b-a)*x};
+  var el={rig:$('rig'),br:$('br'),mac:$('imMac'),liv:$('imLiv'),vp:$('vp'),pay:$('pay'),o1:$('o1'),o2:$('o2'),ok:$('ok'),go:$('go'),ph:$('ph'),
+    film:$('film'),fprog:$('fprog'),ftc:$('ftc'),cur:$('cur'),rip:$('rip'),tc:$('tc'),url:$('url'),glow:$('stGlow'),grid:$('stGrid'),c:[$('c1'),$('c2'),$('c3')],
+    L:[$('L0'),$('L1'),$('L2'),$('L3')],B:[$('B0'),$('B1'),$('B2'),$('B3')]};
+  var beats=[[0,2.4],[2.4,5.6],[5.6,9.4],[9.4,14]];
+  var pad=function(n){return (n<10?'0':'')+n};
+  function vpH(){return el.vp.getBoundingClientRect().height}
+  // positions du curseur dans le repère de la scène (en % de largeur)
+  function render(t){
+    var W=S.clientWidth||1; var cq=W/100;
+    // caméra
+    var ry=-7+5*Math.sin(t/T*2*Math.PI), rx=7+1.5*Math.cos(t/T*2*Math.PI);
+    el.rig.style.transform='rotateX('+rx+'deg) rotateY('+ry+'deg)';
+    el.glow.style.setProperty('--gx',(30+12*Math.sin(t/T*2*Math.PI))+'%'); el.glow.style.setProperty('--gy',(34+8*Math.cos(t/T*2*Math.PI))+'%');
+    el.glow.style.setProperty('--rx',(76-10*Math.sin(t/T*2*Math.PI))+'%');
+    el.grid.style.transform='translate('+(-ry*.6)+'cqw,'+(rx*.2)+'cqw)';
+    // navigateur principal
+    var zoom=1+.04*win(t,0,2.4,1.2,.4);
+    el.br.style.transform='rotateY(16deg) rotateX(2deg) translateZ('+(20+30*win(t,2.2,5.6,.6,.6))+'px) scale('+zoom+')';
+    var H=vpH(), mh=el.mac.getBoundingClientRect().height||1, lh=el.liv.getBoundingClientRect().height||1;
+    // défilement Macarotte : haut de page jusqu'à 5.4 s, puis survol rapide
+    var ms=eio(p(t,5.4,7.2))*.55*(mh-H);
+    el.mac.style.transform='translateY('+(-ms)+'px)';
+    var swap=eio(p(t,6.6,7.2))*(1-eio(p(t,13.1,13.8)));
+    el.mac.style.opacity=1-swap; el.liv.style.opacity=swap;
+    var ls=eio(p(t,7.0,12.6))*.62*(lh-H);
+    el.liv.style.transform='translateY('+(-ls)+'px)';
+    el.url.innerHTML='<b>🔒</b> '+(swap>.5?'livres.eroskadima.com':'macarotte.eroskadima.com');
+    if(t>13.8){el.mac.style.transform='translateY(0)'}
+    // fiche de paiement
+    var po=eo(p(t,2.35,2.9))*(1-eio(p(t,5.0,5.5)));
+    el.pay.style.transform='translate(-50%,'+(100-100*po)+'%)';
+    var sel=t>3.15; el.o1.className='opt'+(sel?'':' on'); el.o2.className='opt'; if(sel){el.o1.className='opt on'}
+    el.ok.style.opacity=p(t,3.95,4.15)*(1-p(t,5.3,5.5));
+    el.go.style.transform='scale('+(1-.05*win(t,3.8,4.05,.08,.15))+')';
+    // curseur : bouton d'achat (2.1 s) puis « Payer » (3.9 s)
+    var bx=el.br.offsetLeft, by=el.br.offsetTop, bw=el.br.offsetWidth, bh=el.br.offsetHeight, top=3.2*cq;
+    var P0=[bx+bw*1.05,by+bh*1.1], P1=[bx+bw*.17,by+top+(bh-top)*.62], P2=[bx+bw*.5,by+bh*.86], P3=[bx+bw*.95,by+bh*1.15];
+    var x,y;
+    if(t<2.1){var q=eio(p(t,.7,2.0));x=lerp(P0[0],P1[0],q);y=lerp(P0[1],P1[1],q)}
+    else if(t<3.9){var q2=eio(p(t,2.9,3.75));x=lerp(P1[0],P2[0],q2);y=lerp(P1[1],P2[1],q2)}
+    else {var q3=eio(p(t,4.3,5.2));x=lerp(P2[0],P3[0],q3);y=lerp(P2[1],P3[1],q3)}
+    el.cur.style.opacity=win(t,.6,5.3,.3,.4);
+    var press=1-.18*(win(t,2.02,2.25,.05,.15)+win(t,3.82,4.05,.05,.15));
+    el.cur.style.transform='translate('+x+'px,'+y+'px) translateZ(140px) scale('+press+')';
+    var rp=t<3?p(t,2.08,2.7):p(t,3.88,4.5);
+    el.rip.style.opacity=(rp>0&&rp<1)?(1-rp):0; el.rip.style.transform='translate('+(t<3?P1[0]:P2[0])+'px,'+(t<3?P1[1]:P2[1])+'px) translateZ(130px) scale('+(.3+1.4*rp)+')';
+    // téléphone (pub)
+    var fl=Math.sin(t/T*4*Math.PI);
+    var pop=back(p(t,9.3,9.9));
+    el.ph.style.transform='rotateY(-18deg) translateZ('+(70+30*win(t,9.3,12.8,.6,.6))+'px) translateY('+(2+fl*.8)+'cqw) scale('+(1+.04*win(t,9.3,12.8,.6,.6))+')';
+    // cartes du site (éventail)
+    var fan=eo(p(t,7.3,8.3))*(1-eio(p(t,11.6,12.4)));
+    var pos=[[-3,2,-14,-40],[10,-6,-6,-60],[26,-4,6,-80]];
+    el.c.forEach(function(c,i){var d=p(t,7.3+i*.15,8.1+i*.15);var f=eo(d)*(1-eio(p(t,11.6+i*.1,12.4+i*.1)));
+      c.style.opacity=f; var ps=pos[i];
+      c.style.left=(9+ps[0]*f)+'cqw'; c.style.top=(16+ps[1]*f)+'cqw';
+      c.style.transform='rotateZ('+(ps[2]*f)+'deg) translateZ('+(ps[3]+120*f)+'px) scale('+(.85+.15*f)+')';});
+    // film
+    var fo=eo(p(t,9.6,10.4))*(1-eio(p(t,12.9,13.5)));
+    el.film.style.opacity=fo; el.film.style.transform='translateY('+((1-fo)*6)+'cqw) rotateY(10deg) translateZ('+(110*fo)+'px)';
+    var fs=Math.round(lerp(38,44,p(t,9.6,13.5))); el.ftc.textContent='00:'+pad(fs)+' / 01:01'; el.fprog.style.width=(fs/61*100)+'%';
+    // libellés
+    beats.forEach(function(b,i){var o=win(t,b[0]+.15,b[1]+.1,.45,.35); if(i===0) o=Math.max(o,1-p(t,0,.01)>0?win(t,-1,b[1]+.1,.1,.35):0);
+      el.L[i].style.opacity=o; el.L[i].style.transform='translateY('+((1-eo(p(t,b[0]+.15,b[0]+.7)))*100*(i===0&&t<.2?0:1))+'%)';
+      el.B[i].style.width=(t>=b[1]?100:t<b[0]?0:100*(t-b[0])/(b[1]-b[0]))+'%';});
+    var fr=Math.floor((t%1)*25), sec=Math.floor(t);
+    el.tc.textContent='00:00:'+pad(sec)+':'+pad(fr);
+  }
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){render(10.2);try{$('phv').pause()}catch(e){}return}
+  var t0=performance.now(), vis=true;
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(S)}
+  function loop(now){ if(vis&&!window.__heroPause) render(((now-t0)/1000)%T); requestAnimationFrame(loop)}
+  render(0); requestAnimationFrame(loop);
+  window.__heroRender=render;
+})();
+</script>
+<script>
+(function(){
+  var cards=document.querySelectorAll('[data-reel]');
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target.querySelector('video');
+    if(e.isIntersecting){v.preload='auto';var p=v.play();if(p&&p.catch)p.catch(function(){})}else{v.pause()}})},{threshold:.5}):null;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  cards.forEach(function(c){var v=c.querySelector('video'),t=c.querySelector('.snd');
+    if(io&&!reduce) io.observe(c);
+    c.addEventListener('click',function(){
+      cards.forEach(function(o){if(o!==c){var ov=o.querySelector('video');ov.muted=true;o.querySelector('.snd').textContent='🔇 Toucher pour le son'}});
+      if(v.paused){v.play()} v.muted=!v.muted; t.textContent=v.muted?'🔇 Toucher pour le son':'🔊 Son activé';});
+  });
+})();
+</script>
+<script>
+(function(){
+  var P={"makelele": {"peaks": [0.49, 0.507, 0.482, 0.483, 0.518, 0.531, 0.578, 0.554, 0.59, 0.56, 0.659, 0.545, 0.522, 0.554, 0.549, 1.0, 0.527, 0.493, 0.508, 0.44, 0.593, 0.538, 0.527, 0.518, 0.486, 0.613, 0.515, 0.505, 0.545, 0.523, 0.61, 0.53, 0.528, 0.519, 0.325, 0.484, 0.609, 0.505, 0.596, 0.65, 0.598, 0.61, 0.532, 0.617, 0.659, 0.584, 0.632, 0.552, 0.573, 0.658, 0.602, 0.73, 0.571, 0.577, 0.716, 0.527, 0.753, 0.4, 0.637, 0.721, 0.565, 0.67, 0.594, 0.587, 0.625, 0.527, 0.702, 0.672, 0.603, 0.448, 0.572, 0.667, 0.714, 0.617, 0.703, 0.464, 0.683, 0.67, 0.579, 0.718, 0.601, 0.674, 0.693, 0.551, 0.708, 0.698, 0.628, 0.683, 0.564, 0.622, 0.598, 0.634, 0.722, 0.556, 0.601, 0.646, 0.599, 0.576, 0.406, 0.677, 0.492, 0.592, 0.732, 0.628, 0.585, 0.541, 0.53, 0.828, 0.606, 0.576, 0.759, 0.545, 0.883, 0.622, 0.536, 0.75, 0.539, 0.867, 0.586, 0.392]}, "mololor": {"peaks": [0.526, 0.453, 0.489, 0.506, 0.521, 0.658, 0.564, 0.599, 0.63, 0.64, 0.687, 0.7, 0.661, 0.685, 0.682, 0.662, 0.768, 0.716, 0.593, 0.616, 0.604, 0.724, 0.666, 0.607, 0.755, 0.761, 0.679, 0.811, 0.664, 0.693, 0.836, 0.686, 0.76, 0.792, 0.62, 0.783, 0.803, 0.637, 0.845, 0.733, 0.685, 0.896, 0.614, 0.845, 0.81, 0.622, 0.805, 0.761, 0.789, 0.848, 0.728, 0.775, 0.87, 0.657, 0.811, 0.79, 0.65, 0.858, 0.724, 0.75, 0.827, 0.661, 0.759, 0.8, 0.559, 0.559, 0.562, 0.561, 0.865, 0.7, 0.701, 0.809, 0.681, 0.842, 0.809, 0.7, 0.786, 0.665, 0.63, 0.828, 0.55, 0.859, 0.823, 0.604, 0.853, 0.767, 0.801, 0.86, 0.757, 0.826, 0.997, 0.745, 0.996, 0.941, 0.741, 1.0, 0.831, 0.928, 0.983, 0.79, 0.84, 0.949, 0.761, 0.985, 0.835, 0.744, 0.979, 0.717, 0.924, 0.856, 0.624, 0.981, 0.889, 0.854, 0.937, 0.692, 0.817, 0.985, 0.639, 0.19]}, "maudia": {"peaks": [0.659, 0.611, 0.544, 0.693, 0.638, 0.713, 0.651, 0.594, 0.671, 0.562, 0.626, 0.541, 0.6, 0.626, 0.731, 0.649, 0.62, 0.85, 0.62, 0.721, 0.653, 0.691, 0.596, 0.85, 0.76, 0.781, 0.66, 0.717, 0.751, 0.845, 0.848, 0.756, 0.464, 0.392, 0.289, 0.769, 0.858, 0.814, 0.808, 0.851, 0.765, 0.847, 0.862, 0.76, 0.875, 0.931, 0.622, 0.788, 0.853, 0.718, 0.773, 0.867, 0.731, 0.859, 0.918, 0.611, 0.488, 0.916, 0.777, 0.665, 0.646, 0.756, 0.848, 0.611, 0.717, 0.672, 0.533, 0.728, 0.942, 0.857, 0.796, 0.875, 0.811, 0.819, 1.0, 0.919, 0.656, 0.311, 0.332, 0.289, 0.417, 0.642, 0.533, 0.812, 0.77, 0.706, 0.775, 0.795, 0.664, 0.776, 0.786, 0.656, 0.77, 0.813, 0.659, 0.773, 0.776, 0.716, 0.819, 0.798, 0.519, 0.714, 0.775, 0.628, 0.769, 0.808, 0.607, 0.781, 0.813, 0.583, 0.811, 0.783, 0.462, 0.76, 0.652, 0.517, 0.687, 0.732, 0.489, 0.005]}};
+  var rows=[].slice.call(document.querySelectorAll('[data-trk]'));
+  var css=getComputedStyle(document.documentElement);
+  function fmt(t){t=Math.max(0,t|0);return (t/60|0)+':'+('0'+t%60).slice(-2)}
+  function draw(r){var c=r.querySelector('canvas'),a=r.querySelector('audio'),pk=P[r.dataset.trk].peaks;
+    var dpr=window.devicePixelRatio||1,w=c.clientWidth,h=c.clientHeight; if(!w) return;
+    c.width=w*dpr;c.height=h*dpr;var g=c.getContext('2d');g.scale(dpr,dpr);
+    var n=pk.length,bw=w/n,prog=a.duration?a.currentTime/a.duration:0;
+    for(var i=0;i<n;i++){var v=Math.max(.06,pk[i]),bh=v*(h-6);g.fillStyle=(i/n<prog)?'#8291FF':'#3A4048';
+      g.fillRect(i*bw+bw*.18,(h-bh)/2,Math.max(1,bw*.64),bh)}}
+  var icoPlay='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>',
+      icoPause='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/></svg>';
+  rows.forEach(function(r){var a=r.querySelector('audio'),b=r.querySelector('.pl'),c=r.querySelector('canvas'),cur=r.querySelector('.cur'),title=r.querySelector('b').textContent;
+    function set(on){r.classList.toggle('on',on);b.innerHTML=on?icoPause:icoPlay;b.setAttribute('aria-label',(on?'Mettre en pause ':'Écouter ')+title)}
+    b.addEventListener('click',function(){
+      if(a.paused){rows.forEach(function(o){if(o!==r){o.querySelector('audio').pause()}});
+        document.querySelectorAll('[data-reel] video').forEach(function(v){v.muted=true});
+        var p=a.play();if(p&&p.catch)p.catch(function(){})} else a.pause()});
+    a.addEventListener('play',function(){set(true)});a.addEventListener('pause',function(){set(false)});a.addEventListener('ended',function(){set(false)});
+    a.addEventListener('timeupdate',function(){cur.textContent=fmt(a.currentTime);draw(r)});
+    c.addEventListener('click',function(e){var x=(e.clientX-c.getBoundingClientRect().left)/c.clientWidth;
+      function go(){a.currentTime=x*a.duration;draw(r)}
+      if(a.readyState<1){a.preload='metadata';a.addEventListener('loadedmetadata',go,{once:true});a.load()}else go();
+      if(a.paused){rows.forEach(function(o){if(o!==r)o.querySelector('audio').pause()});var p=a.play();if(p&&p.catch)p.catch(function(){})}});
+    draw(r);
+  });
+  window.addEventListener('resize',function(){rows.forEach(draw)});
+})();
+</script>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('[data-pb]')),bar=document.querySelector('.pb-in');
+  var map={};links.forEach(function(l){map[l.dataset.pb]=l});
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove('on')});
+    var l=map[e.target.id];if(l){l.classList.add('on');var r=l.offsetLeft-bar.clientWidth/2+l.clientWidth/2;try{bar.scrollTo({left:r,behavior:'smooth'})}catch(x){bar.scrollLeft=r}}}})},{rootMargin:'-40% 0px -55% 0px'});
+  ['web','video','identite','musique','conseil','offres'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+})();
+</script>
+<div class="snap-proxy" aria-hidden="true"><div id="chariow-widget" data-product-id="prd_opy6214t" data-store-domain="boutique.eroskadima.com" data-style="tap" data-border-style="rounded" data-cta-width="md" data-cta-animation="none" data-locale="fr" data-primary-color="#2B3FE0" data-background-color="#141619" data-custom-cta-text="Payer mon acompte"></div></div>
+<script>
+(function(){var s=document.createElement('script');s.src='https://js.chariowcdn.com/v1/widget.min.js';s.async=true;document.head.appendChild(s);var l=document.createElement('link');l.rel='stylesheet';l.href='https://js.chariowcdn.com/v1/widget.min.css';document.head.appendChild(l);})();
+document.addEventListener('click',function(e){var b=e.target.closest('.js-buy');if(!b)return;var real=document.querySelector('.snap-proxy button, .snap-proxy a, .snap-proxy [role=button]');if(!real)return;e.preventDefault();e.stopPropagation();setTimeout(function(){real.click()},30);});
+</script>
+</body>
+</html>
